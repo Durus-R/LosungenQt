@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-void pageChanged(Ui::MainWindow* ui, int newYear, int newMonth) {
+void pageChanged(Ui::MainWindow *ui, int newYear, int newMonth)
+{
     int month = newMonth + 1;
     int year = newYear;
     if (month > 12) {
@@ -21,18 +22,22 @@ MainWindow::MainWindow(QWidget *parent)
     ui->calThisMonth->setCurrentPage(currentDate.year(), currentDate.month());
     pageChanged(ui, currentDate.year(), currentDate.month());
     // Call pageChanged upon signal received
-    connect(ui->calThisMonth, &QCalendarWidget::currentPageChanged, this, [this](int newYear, int newMonth) {
-        pageChanged(ui, newYear, newMonth);
-    });
+    connect(ui->calThisMonth,
+            &QCalendarWidget::currentPageChanged,
+            this,
+            [this](int newYear, int newMonth) { pageChanged(ui, newYear, newMonth); });
     connect(ui->calThisMonth, &QCalendarWidget::selectionChanged, this, [this]() {
         ui->calNextMonth->setSelectedDate(ui->calThisMonth->selectedDate());
-        pageChanged(ui, ui->calThisMonth->selectedDate().year(), ui->calThisMonth->selectedDate().month());
+        pageChanged(ui,
+                    ui->calThisMonth->selectedDate().year(),
+                    ui->calThisMonth->selectedDate().month());
     });
     connect(ui->calNextMonth, &QCalendarWidget::selectionChanged, this, [this]() {
         ui->calThisMonth->setSelectedDate(ui->calNextMonth->selectedDate());
-        pageChanged(ui, ui->calNextMonth->selectedDate().year(), ui->calNextMonth->selectedDate().month());
+        pageChanged(ui,
+                    ui->calNextMonth->selectedDate().year(),
+                    ui->calNextMonth->selectedDate().month());
     });
-
 }
 
 MainWindow::~MainWindow()
