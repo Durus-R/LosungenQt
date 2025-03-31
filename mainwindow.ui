@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>LosungenQt</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QCalendarWidget" name="calThisMonth">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>272</width>
+      <height>211</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>20</y>
+      <width>401</width>
+      <height>491</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTextBrowser" name="txtLehrvers"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCopyLosungsvers">
+       <property name="text">
+        <string>Kopieren</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="textBrowser_2"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCopyLehrvers">
+       <property name="text">
+        <string>Kopieren</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTextBrowser" name="txtSonntag"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCopySonntag">
+       <property name="text">
+        <string>PushButton</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QCalendarWidget" name="calNextMonth">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>250</y>
+      <width>272</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="gridVisible">
+     <bool>false</bool>
+    </property>
+    <property name="navigationBarVisible">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDatei">
+    <property name="title">
+     <string>Datei</string>
+    </property>
+    <addaction name="actionBeenden"/>
+   </widget>
+   <widget class="QMenu" name="menuDatum">
+    <property name="title">
+     <string>Datum</string>
+    </property>
+    <addaction name="actionMorgen"/>
+    <addaction name="actionSonntag"/>
+   </widget>
+   <widget class="QMenu" name="menuAnzeigen">
+    <property name="title">
+     <string>Anzeigen</string>
+    </property>
+    <addaction name="actionVers"/>
+    <addaction name="actionText"/>
+   </widget>
+   <addaction name="menuDatei"/>
+   <addaction name="menuDatum"/>
+   <addaction name="menuAnzeigen"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionBeenden">
+   <property name="text">
+    <string>Beenden</string>
+   </property>
+  </action>
+  <action name="actionMorgen">
+   <property name="text">
+    <string>Morgen</string>
+   </property>
+  </action>
+  <action name="actionSonntag">
+   <property name="text">
+    <string>Sonntag</string>
+   </property>
+  </action>
+  <action name="actionVers">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Vers</string>
+   </property>
+  </action>
+  <action name="actionText">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Text</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionBeenden</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
