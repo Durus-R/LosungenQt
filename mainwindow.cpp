@@ -17,15 +17,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // Set the calendar to the current month
+
+    // Implement calendars
     QDate currentDate = QDate::currentDate();
     ui->calThisMonth->setCurrentPage(currentDate.year(), currentDate.month());
     pageChanged(ui, currentDate.year(), currentDate.month());
-    // Call pageChanged upon signal received
-    connect(ui->calThisMonth,
-            &QCalendarWidget::currentPageChanged,
-            this,
-            [this](int newYear, int newMonth) { pageChanged(ui, newYear, newMonth); });
+    connect(ui->calThisMonth, &QCalendarWidget::currentPageChanged, this, [this](int newYear, int newMonth) {
+        pageChanged(ui, newYear, newMonth);
+    });
     connect(ui->calThisMonth, &QCalendarWidget::selectionChanged, this, [this]() {
         ui->calNextMonth->setSelectedDate(ui->calThisMonth->selectedDate());
         pageChanged(ui,
@@ -38,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent)
                     ui->calNextMonth->selectedDate().year(),
                     ui->calNextMonth->selectedDate().month());
     });
+
+    // Implement actionButtons
+
 }
 
 MainWindow::~MainWindow()
