@@ -11,6 +11,8 @@ qt_add_executable(LosungenQt
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    csv_parser.h csv_parser.cpp
+
 
 )
 

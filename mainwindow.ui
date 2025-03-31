@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>773</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,12 +30,12 @@
       <x>330</x>
       <y>20</y>
       <width>401</width>
-      <height>491</height>
+      <height>441</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QTextBrowser" name="txtLehrvers"/>
+      <widget class="QTextBrowser" name="txtLosungsvers"/>
      </item>
      <item>
       <widget class="QPushButton" name="btnCopyLosungsvers">
@@ -45,22 +45,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QTextBrowser" name="textBrowser_2"/>
+      <widget class="QTextBrowser" name="txtLehrvers"/>
      </item>
      <item>
       <widget class="QPushButton" name="btnCopyLehrvers">
        <property name="text">
         <string>Kopieren</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTextBrowser" name="txtSonntag"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnCopySonntag">
-       <property name="text">
-        <string>PushButton</string>
        </property>
       </widget>
      </item>
@@ -88,7 +78,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>773</width>
      <height>25</height>
     </rect>
    </property>
