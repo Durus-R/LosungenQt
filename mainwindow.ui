@@ -7,30 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>773</width>
-    <height>512</height>
+    <height>540</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>LosungenQt</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QCalendarWidget" name="calThisMonth">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>272</width>
-      <height>211</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>330</x>
       <y>20</y>
       <width>401</width>
-      <height>441</height>
+      <height>453</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -60,7 +50,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>250</y>
+      <y>240</y>
       <width>272</width>
       <height>211</height>
      </rect>
@@ -70,6 +60,16 @@
     </property>
     <property name="navigationBarVisible">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCalendarWidget" name="calThisMonth">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>271</width>
+      <height>195</height>
+     </rect>
     </property>
    </widget>
   </widget>
@@ -102,9 +102,17 @@
     <addaction name="actionVers"/>
     <addaction name="actionText"/>
    </widget>
+   <widget class="QMenu" name="menuHilfe">
+    <property name="title">
+     <string>Hilfe</string>
+    </property>
+    <addaction name="actionNutzungsbedingungen"/>
+    <addaction name="actionInfo"/>
+   </widget>
    <addaction name="menuDatei"/>
    <addaction name="menuDatum"/>
    <addaction name="menuAnzeigen"/>
+   <addaction name="menuHilfe"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionBeenden">
@@ -142,6 +150,16 @@
    </property>
    <property name="text">
     <string>Text</string>
+   </property>
+  </action>
+  <action name="actionNutzungsbedingungen">
+   <property name="text">
+    <string>Nutzungsbedingungen</string>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>Info</string>
    </property>
   </action>
  </widget>
