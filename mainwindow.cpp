@@ -1,4 +1,5 @@
 #include <QRegularExpression>
+#include <QScrollEvent>
 #include "mainwindow.h"
 #include "csv_parser.h"
 #include "ui_mainwindow.h"
@@ -82,11 +83,43 @@ void updateTexts(Ui::MainWindow *ui, const csv_parser &parser) {
         }
 }
 
+bool MainWindow::eventFilter(QObject *object, QEvent *event) {
+    if (this->ui->calNextMonth->underMouse() && event->type() == QEvent::Wheel) {
+        qDebug() << "Wheel Event";
+        QWheelEvent *wheelEvent = static_cast<QWheelEvent *>(event);
+        if (wheelEvent->angleDelta().y() != 0) {
+            int delta = wheelEvent->angleDelta().y();
+            if (delta > 0) {
+                int month = ui->calNextMonth->monthShown() + 1;
+                int year = ui->calNextMonth->yearShown();
+                if (month > 12) {
+                    month--;
+                    year++;
+                }
+                ui->calThisMonth->setCurrentPage(year, month);
+            } else {
+                int month = ui->calNextMonth->monthShown() - 1;
+                int year = ui->calNextMonth->yearShown();
+                if (month < 1) {
+                    month = 12;
+                    year--;
+                }
+                ui->calThisMonth->setCurrentPage(year, month);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // Filter Scrolling
+    this->installEventFilter(this);
 
     // Implement calendars
     QDate currentDate = QDate::currentDate();
@@ -95,6 +128,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->calThisMonth, &QCalendarWidget::currentPageChanged, this, [this](int newYear, int newMonth) {
         pageChanged(ui, newYear, newMonth);
     });
+
     connect(ui->calThisMonth, &QCalendarWidget::selectionChanged, this, [this]() {
         ui->calNextMonth->setSelectedDate(ui->calThisMonth->selectedDate());
         pageChanged(ui,
