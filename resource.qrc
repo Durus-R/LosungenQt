@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Losungen_2025.csv</file>
+        <file>icon.png</file>
+    </qresource>
+</RCC>

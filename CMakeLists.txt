@@ -5,6 +5,9 @@ find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
 
 qt_standard_project_setup()
 
+set(CMAKE_AUTORCC ON)
+set(app_icon_resource_windows "win_resource.rc")
+
 qt_add_executable(LosungenQt
     WIN32 MACOSX_BUNDLE
     main.cpp
@@ -12,8 +15,8 @@ qt_add_executable(LosungenQt
     mainwindow.h
     mainwindow.ui
     csv_parser.h csv_parser.cpp
-
-
+    resource.qrc
+    win_resource.rc
 )
 
 target_link_libraries(LosungenQt
@@ -23,6 +26,7 @@ target_link_libraries(LosungenQt
 )
 
 include(GNUInstallDirs)
+
 
 install(TARGETS LosungenQt
     BUNDLE  DESTINATION .

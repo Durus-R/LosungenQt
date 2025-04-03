@@ -99,6 +99,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->centralwidget->installEventFilter(this);
 
+    setWindowIcon(QIcon(":/icon.png"));
+
     // Implement calendars
     QDate currentDate = QDate::currentDate();
     ui->calThisMonth->setCurrentPage(currentDate.year(), currentDate.month());
@@ -129,7 +131,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
     // Implement parser
-    const csv_parser parser(QFile("../../Losungen_2025.csv"));
+    const csv_parser parser(QFile(":/Losungen_2025.csv"));
     updateTexts(ui, parser);
     connect(ui->calThisMonth, &QCalendarWidget::selectionChanged, this, [this, parser]() {
        updateTexts(ui, parser);
